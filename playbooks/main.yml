@@ -35,6 +35,12 @@
         scope: write
         state: present
 
+    - name: Get our remote vaulted variables
+      tags:
+        - create
+      ansible.builtin.include_role:
+        name: remote_vault
+
     - name: Grab vault from remote url
       ansible.builtin.get_url:
         url: '{{ my_remote_vault }}'
